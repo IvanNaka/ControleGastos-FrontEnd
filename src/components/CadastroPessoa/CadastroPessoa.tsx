@@ -140,35 +140,31 @@ export function CadastroPessoa() {
                   <p className="text-muted small">Comece cadastrando uma pessoa ao lado</p>
                 </div>
               ) : (
-                <ListGroup variant="flush" className="border rounded">
+                <ListGroup variant="flush">
                   {pessoas.map((pessoa, index) => (
                     <ListGroup.Item
                       key={pessoa.id}
-                      className="d-flex justify-content-between align-items-center py-3 border-0"
-                      style={{ 
-                        borderBottom: index < pessoas.length - 1 ? '1px solid #e9ecef' : 'none',
-                        transition: 'background-color 0.2s',
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8f9fa'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      className="d-flex justify-content-between align-items-center py-3 border rounded mb-3 shadow-sm"
                     >
-                      <div className="d-flex align-items-center">
+                      <div className="d-flex align-items-center flex-grow-1">
                         <div className="rounded-circle bg-primary bg-opacity-10 p-2 me-3" style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <PersonFill size={24} className="text-primary" />
                         </div>
-                        <div>
-                          <h6 className="mb-1 fw-semibold">{pessoa.nome}</h6>
-                          <div className="d-flex align-items-center gap-2">
+                        <div className="flex-grow-1">
+                          <div className="d-flex align-items-center gap-3">
+                            <div>
+                              <h6 className="mb-0 fw-semibold">{pessoa.nome}</h6>
+                              {pessoa.idade < 18 && (
+                                <Badge bg="warning" text="dark" className="px-2 mt-1">
+                                  <ExclamationTriangleFill size={12} className="me-1" />
+                                  Menor
+                                </Badge>
+                              )}
+                            </div>
                             <small className="text-muted">
                               <CalendarEvent size={14} className="me-1" />
                               {pessoa.idade} anos
                             </small>
-                            {pessoa.idade < 18 && (
-                              <Badge bg="warning" text="dark" className="px-2">
-                                <ExclamationTriangleFill size={12} className="me-1" />
-                                Menor
-                              </Badge>
-                            )}
                           </div>
                         </div>
                       </div>

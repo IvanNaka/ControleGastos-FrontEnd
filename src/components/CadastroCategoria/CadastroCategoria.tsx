@@ -77,18 +77,6 @@ export function CadastroCategoria() {
     }
   };
 
-  const getFinalidadeLabel = (finalidade: FinalidadeCategoria) => {
-    switch (finalidade) {
-      case FinalidadeCategoria.Receita:
-        return 'Receita';
-      case FinalidadeCategoria.Despesa:
-        return 'Despesa';
-      case FinalidadeCategoria.Ambas:
-        return 'Ambas (Despesa e Receita)';
-      default:
-        return '';
-    }
-  };
 
   return (
     <Container className="py-5">

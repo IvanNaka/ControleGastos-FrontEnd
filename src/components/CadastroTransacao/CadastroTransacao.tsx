@@ -40,6 +40,17 @@ export function CadastroTransacao() {
   }, []);
 
   useEffect(() => {
+    // Verificar se a pessoa selecionada é menor de 18 anos
+    if (pessoaId) {
+      const pessoaSelecionada = pessoas.find(p => p.id === pessoaId);
+      if (pessoaSelecionada && pessoaSelecionada.idade < 18 && tipo === TipoTransacao.Receita) {
+        setTipo(TipoTransacao.Despesa);
+        toast.warning('Menores de 18 anos não podem ter transações de receita');
+      }
+    }
+  }, [pessoaId, pessoas]);
+
+  useEffect(() => {
     // Filtrar categorias compatíveis com o tipo selecionado
     const categoriasFiltradas = categorias.filter(cat => 
       cat.finalidade === FinalidadeCategoria.Ambas || 
@@ -238,8 +249,18 @@ export function CadastroTransacao() {
                     required
                   >
                     <option value={TipoTransacao.Despesa}>Despesa</option>
-                    <option value={TipoTransacao.Receita}>Receita</option>
+                    <option 
+                      value={TipoTransacao.Receita}
+                        disabled={!!(pessoaId && (pessoas.find(p => p.id === pessoaId)?.idade ?? 0) < 18)}
+                    >
+                      Receita
+                    </option>
                   </Form.Select>
+                  {pessoaId && (pessoas.find(p => p.id === pessoaId)?.idade ?? 0) < 18 && (
+                    <Form.Text className="text-warning">
+                      Menores de 18 anos não podem ter transações de receita
+                    </Form.Text>
+                  )}
                 </Form.Group>
               </Col>
             </Row>

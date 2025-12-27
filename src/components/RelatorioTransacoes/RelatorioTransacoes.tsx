@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { Transacao } from '../../types/Transacao';
 import { TipoTransacao } from '../../types/Transacao';
 import type { Pessoa } from '../../types/Pessoa';
