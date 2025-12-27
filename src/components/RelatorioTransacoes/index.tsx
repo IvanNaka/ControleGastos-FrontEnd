@@ -1,0 +1,1 @@
+export { RelatorioTransacoes } from './RelatorioTransacoes';
