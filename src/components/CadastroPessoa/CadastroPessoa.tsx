@@ -141,7 +141,7 @@ export function CadastroPessoa() {
                 </div>
               ) : (
                 <ListGroup variant="flush">
-                  {pessoas.map((pessoa, index) => (
+                  {pessoas.map((pessoa) => (
                     <ListGroup.Item
                       key={pessoa.id}
                       className="d-flex justify-content-between align-items-center py-3 border rounded mb-3 shadow-sm"
