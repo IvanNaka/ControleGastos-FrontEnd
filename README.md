@@ -1,8 +1,12 @@
 # Controle de Gastos - Frontend
 
 Sistema web para gerenciamento de receitas e despesas pessoais com autenticação Azure AD.
-Back End Hospedado em: controlegastosapi-chapc5fgg5g6acah.brazilsouth-01.azurewebsites.net
-Front End Hospedado em: https://main.d2zasgf9hme6sh.amplifyapp.com/
+
+
+## Hospedagem
+
+- **Back End Hospedado em: https://controlegastosapi-chapc5fgg5g6acah.brazilsouth-01.azurewebsites.net**
+- **Front End Hospedado em: https://main.d2zasgf9hme6sh.amplifyapp.com/**
 
 ## Sobre o Projeto
 
