@@ -14,12 +14,12 @@ export const msalConfig: Configuration = {
 };
 
 export const loginRequest: PopupRequest = {
-   scopes:  [`${import.meta.env.VITE_AZURE_CLIENT_ID}/.default`],
+   scopes:  ["User.Read"],
 };
 
 // Scopes específicos para sua API backend
 export const apiRequest = {
   scopes: [
-    `${import.meta.env.VITE_AZURE_CLIENT_ID}/.default`,
+    "User.Read",
   ],
 };

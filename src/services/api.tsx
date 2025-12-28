@@ -19,7 +19,7 @@ api.interceptors.request.use(
       
       if (accounts.length > 0) {
         const response = await msalInstance.acquireTokenSilent({
-          scopes: [`${import.meta.env.VITE_AZURE_CLIENT_ID}/.default`],
+          scopes: ["User.Read"],
           account: accounts[0],
         });
         if (response.accessToken) {
