@@ -14,12 +14,12 @@ export const msalConfig: Configuration = {
 };
 
 export const loginRequest: PopupRequest = {
-   scopes:  ["User.Read"],
+   scopes:  ["api://a0e8ed63-ce40-4d38-8e25-2f3cc5e581f1/access_as_user"],
 };
 
 // Scopes específicos para sua API backend
 export const apiRequest = {
   scopes: [
-    "User.Read",
+    "api://a0e8ed63-ce40-4d38-8e25-2f3cc5e581f1/access_as_user",
   ],
 };

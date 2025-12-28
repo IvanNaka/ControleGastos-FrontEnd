@@ -19,7 +19,7 @@ api.interceptors.request.use(
       
       if (accounts.length > 0) {
         const response = await msalInstance.acquireTokenSilent({
-          scopes: ["User.Read"],
+          scopes: ["api://a0e8ed63-ce40-4d38-8e25-2f3cc5e581f1/access_as_user"],
           account: accounts[0],
         });
         if (response.accessToken) {
