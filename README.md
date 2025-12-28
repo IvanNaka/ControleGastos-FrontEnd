@@ -2,6 +2,12 @@
 
 Sistema web para gerenciamento de receitas e despesas pessoais com autenticação Azure AD.
 
+
+## Hospedagem
+
+- **Back End Hospedado em: https://controlegastosapi-chapc5fgg5g6acah.brazilsouth-01.azurewebsites.net**
+- **Front End Hospedado em: https://main.d2zasgf9hme6sh.amplifyapp.com/**
+
 ## Sobre o Projeto
 
 O **Controle de Gastos** é uma aplicação web moderna desenvolvida em React + TypeScript que permite aos usuários gerenciar suas finanças pessoais de forma simples e eficiente. O sistema oferece funcionalidades completas de CRUD para pessoas, categorias e transações, além de relatórios detalhados com filtros personalizados.
