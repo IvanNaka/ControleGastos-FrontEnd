@@ -8,19 +8,19 @@ import { TagFill, TagsFill, Inbox, CheckCircleFill, TrashFill, ArrowRepeat, Cash
 import { criarCategoria, deletarCategoria, obterCategorias } from '../../services/CategoriasService';
 
 
+
 export function CadastroCategoria() {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [descricao, setDescricao] = useState('');
   const [finalidade, setFinalidade] = useState<FinalidadeCategoria>(FinalidadeCategoria.Ambas);
 
-  const usuarioId = '90606ffe-e371-4aa7-8adb-1848e7d5cc2e';
 
   useEffect(() => {
     carregarCategorias();
   }, []);
 
   const carregarCategorias = async () => {
-    setCategorias(await obterCategorias(usuarioId));
+    setCategorias(await obterCategorias());
   };
 
   const handleCriarCategoria = async (e: React.FormEvent) => {
@@ -34,8 +34,7 @@ export function CadastroCategoria() {
     try {
       const response = await criarCategoria({ 
         descricao, 
-        finalidade, 
-        usuarioId 
+        finalidade
       });
       
       if (!response) {
@@ -83,7 +82,7 @@ export function CadastroCategoria() {
       <Row className="g-4">
         <Col lg={5} md={12}>
           <Card className="shadow-sm border-0">
-            <Card.Header style={{ background: '#667eea' }}>
+            <Card.Header style={{ background: '#000000ff' }}>
               <h5 className="mb-0 text-white">
                 <TagFill size={20} className="me-2" />
                 Cadastrar Nova Categoria
@@ -122,7 +121,7 @@ export function CadastroCategoria() {
                   </Form.Text>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" className="w-100 py-2 fw-semibold" style={{ background: '#667eea', border: 'none' }}>
+                <Button variant="primary" type="submit" className="w-100 py-2 fw-semibold" style={{ background: '#000000ff', border: 'none' }}>
                   <CheckCircleFill size={20} className="me-2" />
                   Cadastrar Categoria
                 </Button>
@@ -133,7 +132,7 @@ export function CadastroCategoria() {
 
         <Col lg={7} md={12}>
           <Card className="shadow-sm border-0">
-            <Card.Header style={{ background: '#f5576c' }}>
+            <Card.Header style={{ background: '#000000ff' }}>
               <h5 className="mb-0 text-white">
                 <TagsFill size={20} className="me-2" />
                 Categorias Cadastradas

@@ -1,8 +1,8 @@
 import type { Pessoa } from "../types/Pessoa";
 import api from "./api";
 
-export async function obterPessoas(usuarioId: string): Promise<Pessoa[]> {
-  const data = await api.get(`/pessoas/usuario/${usuarioId}`).then(res => res.data);
+export async function obterPessoas(): Promise<Pessoa[]> {
+  const data = await api.get(`/pessoas`).then(res => res.data);
   return data ? data : [];
 }
 

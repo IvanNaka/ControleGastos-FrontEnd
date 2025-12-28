@@ -2,11 +2,13 @@ export interface Categoria {
   id?: string;
   descricao: string;
   finalidade: FinalidadeCategoria;
-  usuarioId: string;
+  usuarioId?: string;
 }
 
-export enum FinalidadeCategoria {
-  Receita = 1,
-  Despesa = 2,
-  Ambas = 3
+export type FinalidadeCategoria = 1 | 2 | 3;
+
+export const FinalidadeCategoria = {
+  Receita: 1 as const,
+  Despesa: 2 as const,
+  Ambas: 3 as const,
 }

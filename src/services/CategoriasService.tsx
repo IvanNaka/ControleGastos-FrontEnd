@@ -1,9 +1,9 @@
 import api from './api';
 import type { Categoria } from '../types/Categoria';
 
-export const obterCategorias = async (usuarioId: string): Promise<Categoria[]> => {
+export const obterCategorias = async (): Promise<Categoria[]> => {
   try {
-    const response = await api.get(`/categorias/usuario/${usuarioId}`);
+    const response = await api.get(`/categorias`);
     return response.data;
   } catch (error) {
     console.error('Erro ao obter categorias:', error);

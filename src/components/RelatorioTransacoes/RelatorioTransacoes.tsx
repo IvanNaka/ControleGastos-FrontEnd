@@ -27,8 +27,6 @@ export function RelatorioTransacoes() {
   const [pessoaFiltro, setPessoaFiltro] = useState('');
   const [categoriaFiltro, setCategoriaFiltro] = useState('');
 
-  const usuarioId = '90606ffe-e371-4aa7-8adb-1848e7d5cc2e';
-
   useEffect(() => {
     carregarDados();
   }, []);
@@ -36,9 +34,9 @@ export function RelatorioTransacoes() {
   const carregarDados = async () => {
     try {
       const [pessoasData, categoriasData, transacoesData] = await Promise.all([
-        obterPessoas(usuarioId),
-        obterCategorias(usuarioId),
-        obterTransacoes(usuarioId)
+        obterPessoas(),
+        obterCategorias(),
+        obterTransacoes()
       ]);
       
       setPessoas(pessoasData);

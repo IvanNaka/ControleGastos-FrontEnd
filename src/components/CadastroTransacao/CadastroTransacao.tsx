@@ -33,7 +33,6 @@ export function CadastroTransacao() {
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');
 
-  const usuarioId = '90606ffe-e371-4aa7-8adb-1848e7d5cc2e';
 
   useEffect(() => {
     carregarDados();
@@ -70,9 +69,9 @@ export function CadastroTransacao() {
 
   const carregarDados = async () => {
     const [pessoasData, categoriasData, transacoesData] = await Promise.all([
-      obterPessoas(usuarioId),
-      obterCategorias(usuarioId),
-      obterTransacoes(usuarioId)
+      obterPessoas(),
+      obterCategorias(),
+      obterTransacoes()
     ]);
     
     setPessoas(pessoasData);
@@ -110,7 +109,6 @@ export function CadastroTransacao() {
         tipo,
         descricao: descricao.trim(),
         valor: parseFloat(valor),
-        usuarioId
       });
 
       if (!response) {

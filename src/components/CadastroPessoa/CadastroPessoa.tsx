@@ -7,14 +7,12 @@ import { Button, Card, Form, Container, Row, Col, ListGroup, Badge } from 'react
 import { PersonPlusFill, PeopleFill, Inbox, PersonFill, CheckCircleFill, CalendarEvent, ExclamationTriangleFill, TrashFill } from 'react-bootstrap-icons';
 import { criarPessoa, deletarPessoa, obterPessoas } from '../../services/PessoasService';
 
-
 export function CadastroPessoa() {
   const [pessoas, setPessoas] = useState<Pessoa[]>([]);
   
   const [nomePessoa, setNomePessoa] = useState('');
   const [idadePessoa, setIdadePessoa] = useState('');
 
-  const usuarioId = '90606ffe-e371-4aa7-8adb-1848e7d5cc2e';
 
 
   useEffect(() => {
@@ -23,7 +21,7 @@ export function CadastroPessoa() {
 
 
   const carregarPessoas = async () => {
-    setPessoas(await obterPessoas(usuarioId));
+    setPessoas(await obterPessoas());
   };
 
   const handleCriarPessoa = async (e: React.FormEvent) => {
@@ -42,7 +40,7 @@ export function CadastroPessoa() {
 
     try {
 
-      var response =  await criarPessoa({ nome: nomePessoa, idade, usuarioId: usuarioId });
+      var response =  await criarPessoa({ nome: nomePessoa, idade});
       if (!response) {
         toast.error('Erro ao cadastrar pessoa');
         return;
@@ -58,9 +56,9 @@ export function CadastroPessoa() {
     }
   };
 
-  const handleDeletarPessoa = (id: string, nome: string) => {
+  const handleDeletarPessoa = async (id: string, nome: string) => {
     if (window.confirm(`Tem certeza que deseja deletar ${nome}? Todas as transações dessa pessoa também serão deletadas.`)) {
-      deletarPessoa(id);
+      await deletarPessoa(id);
       toast.success('Pessoa deletada com sucesso!');
       carregarPessoas();
     }

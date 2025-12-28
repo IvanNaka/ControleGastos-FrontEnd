@@ -8,7 +8,9 @@ export interface Transacao {
   usuarioId?: string;
 }
 
-export enum TipoTransacao {
-  Receita = 1,
-  Despesa = 2
-}
+export type TipoTransacao = 1 | 2;
+
+export const TipoTransacao = {
+  Receita: 1 as const,
+  Despesa: 2 as const,
+};
